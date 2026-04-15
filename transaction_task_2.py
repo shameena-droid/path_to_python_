@@ -1,5 +1,3 @@
-from datetime import date
-
 
 transactions = {
     "TXN_001": {"amount": 500, "location": "Local", "timestamp": "2023-10-01 10:00", "status": "approved"},

@@ -46,7 +46,6 @@ popped = delete_approved_items(transactions,to_be_removed)
 print(" removed transactions are : ")
 print(popped)
 
-
 """view the flagged txns"""
 print("the final database : ")
 print(flagged)

@@ -12,7 +12,6 @@ txn = {
     "TXN_006":{"amount": 75, "location": "International", "timestamp": "2023-10-01 10:20", "status": "pending"}
       }
 transactions.update(txn)
-#print(transactions)
 
 """if the amount >10000 or location is international ,update status to flagged"""
 rule = {"mxm_amount":10000}
@@ -26,7 +25,7 @@ def flag_the_user(database:dict[str, dict[str, int | str]],rule:dict ):
     print(flagged_items)
     return database
 
-#calling the f()
+"""calling the f()"""
 flagged= flag_the_user(transactions,rule)
 
 """create a list to add the items to be deleted..."""
@@ -36,12 +35,11 @@ def delete_approved_items(database:dict[str, dict[str, int | str]],remove)->list
     for t_n, data in database.items() :
         if data["status"] == "approved":
             remove.append(t_n)   
-    #print (to_be_removed)
     for item in remove:
         database.pop(item)
     return remove
 
-#call the f()
+"""call the f()"""
 popped = delete_approved_items(transactions,to_be_removed)
 print(" removed transactions are : ")
 print(popped)

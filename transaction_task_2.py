@@ -15,8 +15,8 @@ transactions.update(txn)
 
 """if the amount >10000 or location is international ,update status to flagged"""
 rule = {"mxm_amount":10000}
-flagged_items = []
 def flag_the_user(database:dict[str, dict[str, int | str]],rule:dict ):
+    flagged_items = []
     for t_n, data in database.items() :
         if data["amount"] > rule.get("mxm_amount") or data["location"] == "International" :
             data["status"] = "flagged"
@@ -31,7 +31,7 @@ flagged= flag_the_user(transactions,rule)
 """create a list to add the items to be deleted..."""
 to_be_removed = []
 """ ...to remove the txn whose status=approved"""
-def delete_approved_items(database:dict[str, dict[str, int | str]],remove)->list[dict]:
+def delete_approved_items(database:dict[str, dict[str, int | str]],remove)->list[str]:
     for t_n, data in database.items() :
         if data["status"] == "approved":
             remove.append(t_n)   
